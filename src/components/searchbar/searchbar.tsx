@@ -18,7 +18,7 @@ export const Searchbar: React.FC<Props> = ({
                 value={value}
                 placeholder={placeholder}
                 onChange={onChange}
-                className="px-4 py-2 border-2 border-gray-200 rounded-md focus:border-purple-500 transition duration-300"
+                className="px-4 py-2 border-2 border-gray-200 rounded-md focus:border-violet-500 transition duration-300"
             />
         </div>
     )
