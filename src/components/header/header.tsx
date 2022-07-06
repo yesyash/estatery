@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import React from 'react'
 import { Home } from 'react-feather'
-import { Button } from '../button'
-import { Dropdown } from '../dropdown'
+import { Button } from '../../ui/button'
+import { Dropdown } from '../../ui/dropdown'
 
 import { NavLinks } from './header.const'
 interface CommonProps {

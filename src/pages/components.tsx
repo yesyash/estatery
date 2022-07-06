@@ -1,7 +1,7 @@
-import { Button } from '@/components/button'
-import { Card } from '@/components/card'
-import { Dropdown } from '@/components/dropdown'
-import { Searchbar } from '@/components/searchbar'
+import { Button } from '@/ui/button'
+import { Card } from '@/ui/card'
+import { Dropdown } from '@/ui/dropdown'
+import { Searchbar } from '@/ui/searchbar'
 import type { NextPage } from 'next'
 
 const Components: NextPage = () => {
