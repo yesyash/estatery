@@ -1,4 +1,4 @@
-import { cn } from '@/utils/classname'
+import { cn } from '@/utils'
 import { ChevronDown } from 'react-feather'
 
 interface Props {

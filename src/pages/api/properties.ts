@@ -1,15 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { data as propertiesData } from '@/static/properties-data'
-import { IProperty } from '@/types/property'
-
-type Data = {
-    data: IProperty[]
-    properties_count: number
-}
+import { IProperty, IPropertiesApi } from '@/types/property'
 
 export default function handler(
     req: NextApiRequest,
-    res: NextApiResponse<Data>
+    res: NextApiResponse<IPropertiesApi>
 ) {
     if (req.method === 'GET') {
         res.status(200).json({

@@ -1,4 +1,4 @@
-import {cn} from '@/utils/classname'
+import { cn } from '@/utils'
 
 interface LabelProps {
     className?: string
@@ -6,7 +6,11 @@ interface LabelProps {
     htmlFor?: string
 }
 
-export const Label: React.FC<LabelProps> = ({ className, children, htmlFor }) => {
+export const Label: React.FC<LabelProps> = ({
+    className,
+    children,
+    htmlFor,
+}) => {
     return (
         <label
             className={cn(

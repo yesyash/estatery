@@ -18,3 +18,8 @@ export interface IProperty {
         annual: number
     }
 }
+
+export interface IPropertiesApi {
+    data: IProperty[]
+    properties_count: number
+}
