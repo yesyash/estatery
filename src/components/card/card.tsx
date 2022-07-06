@@ -13,7 +13,7 @@ const Ribbon = () => {
 
 export const Card = () => {
     return (
-        <div className="relative max-w-[350px] rounded-lg overflow-hidden shadow-md shadow-violet-400/10">
+        <div className="relative min-w-[350px] max-w-[450px] rounded-lg overflow-hidden shadow-md shadow-violet-400/10">
             <div className="relative">
                 <Ribbon />
                 <img

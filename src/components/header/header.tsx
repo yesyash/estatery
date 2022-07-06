@@ -19,8 +19,8 @@ const NavigationLink: React.FC<CommonProps> = ({ children }) => {
 
 export const Header = () => {
     return (
-        <header className="flex items-center px-20 py-4 bg-transparent border-b shadow-sm border-gray-300/50 shadow-violet-400/20">
-            <h1 className="text-xl font-bold">
+        <header className="flex items-center px-10 py-4 bg-transparent border-b shadow-sm border-gray-300/50 shadow-violet-400/20">
+            <h1 className="text-xl font-semibold">
                 <Link href={'/'}>
                     <a className="flex items-center gap-2 px-4 py-2 text-inherit">
                         <Home className=" fill-violet-600 stroke-violet-600" />
