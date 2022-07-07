@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 import type { NextPage } from 'next'
 
 import { Header } from '@/components/header'
@@ -8,7 +9,6 @@ import { FilterSection } from './sections/filter'
 
 import { useStore } from './homepage.store'
 import { initializePropertyData } from './homepage.utils'
-import { Head } from 'next/document'
 
 const HomePage: NextPage = () => {
     const { appState, setAppState, setInitialData } = useStore((state) => state)
