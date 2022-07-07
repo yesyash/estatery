@@ -1,3 +1,4 @@
+import { BlurImage } from '@/components/blur-image'
 import { Bed, HotTub } from '@/icons'
 import React from 'react'
 import { Square, Star } from 'react-feather'
@@ -13,7 +14,7 @@ interface Props {
 }
 const Ribbon = () => {
     return (
-        <div className="absolute bottom-0 left-0 flex items-center p-3 font-medium text-white translate-y-1/2 rounded-tr-lg rounded-br-lg bg-violet-500">
+        <div className="absolute bottom-0 left-0 z-10 flex items-center p-3 font-medium text-white translate-y-1/2 rounded-tr-lg rounded-br-lg bg-violet-500">
             <Star width={12} height={12} fill="#fff" className="block" />
             <p className="text-xs ml-2 leading-[0]">POPULAR</p>
         </div>
@@ -25,11 +26,7 @@ export const Card: React.FC<Props> = (props) => {
         <div className="relative min-w-[350px] max-w-[450px] rounded-lg overflow-hidden shadow-md shadow-violet-400/10">
             <div className="relative h-72">
                 <Ribbon />
-                <img
-                    src={props.img}
-                    alt={props.name}
-                    className="object-cover w-full h-full"
-                />
+                <BlurImage alt={props.name} url={props.img} />
             </div>
 
             <div className="px-6 py-4 bg-white">

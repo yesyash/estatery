@@ -23,6 +23,7 @@ const HomePage: NextPage = () => {
             <main className="py-8 mx-auto max-w-7xl">
                 <SearchSection />
                 <FilterSection />
+
                 {appState !== 'ready' ? (
                     <div className="grid capitalize lg:h-40 lg:text-xl place-content-center">
                         {appState}...
