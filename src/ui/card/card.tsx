@@ -1,7 +1,9 @@
+import React from 'react'
+import { Square } from 'react-feather'
+
 import { BlurImage } from '@/components/blur-image'
 import { Bed, HotTub } from '@/icons'
-import React from 'react'
-import { Square, Star } from 'react-feather'
+import { Ribbon } from './card.child'
 
 interface Props {
     img: string
@@ -11,14 +13,6 @@ interface Props {
     beds: number
     bathrooms: number
     area: { length: number; width: number }
-}
-const Ribbon = () => {
-    return (
-        <div className="absolute bottom-0 left-0 z-10 flex items-center p-3 font-medium text-white translate-y-1/2 rounded-tr-lg rounded-br-lg bg-violet-500">
-            <Star width={12} height={12} fill="#fff" className="block" />
-            <p className="text-xs ml-2 leading-[0]">POPULAR</p>
-        </div>
-    )
 }
 
 export const Card: React.FC<Props> = (props) => {

@@ -46,10 +46,6 @@ export const FilterSection = () => {
         dateInput.value = ''
     }, [])
 
-    React.useEffect(() => {
-        console.log(filterValue)
-    }, [filterValue])
-
     return (
         <div className="flex items-center px-4 py-4 mx-auto mb-8 bg-white border rounded-md max-w-7xl border-violet-100 drop-shadow-sm">
             <div className="flex-grow pl-4 pr-8 border-r border-gray-300">

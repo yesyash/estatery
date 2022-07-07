@@ -1,11 +1,9 @@
+/**
+ * Global store for homepage.
+ */
+
 import create from 'zustand'
 import { IProperty } from '@/types/property'
-import { IFilterValue } from './homepage.types'
-
-/**
- * add all data
- * filter data
- */
 
 type AppStates = 'loading' | 'error' | 'ready'
 

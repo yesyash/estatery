@@ -1,3 +1,7 @@
+/**
+ * Types that will be exclusively be used by homepage.tsx (or)
+ * elements present in this directory.
+ */
 export interface IFilterValue {
     location: string
     date: number

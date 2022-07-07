@@ -1,4 +1,9 @@
-import { IStore, useStore } from './homepage.store'
+/**
+ * Utility functions that will be exclusively be used by homepage.tsx (or)
+ * elements present in this directory.
+ */
+
+import { IStore } from './homepage.store'
 
 import { getProperties } from '@/utils'
 import { getLocalItem } from '@/utils/get-local-item'
@@ -6,6 +11,13 @@ import { setLocalItem } from '@/utils/set-local-item'
 import { IProperty } from '@/types/property'
 import { IFilterChange, IFilterValue } from './homepage.types'
 
+/**
+ * Function to fetch data from the api
+ * and set it to the global store.
+ *
+ * @param SetAppState : setter functoin to change the current app state.
+ * @param  setInitialData : setter function taken from the global store to set the results from api.
+ */
 export const initializePropertyData = async (
     setAppState: IStore['setAppState'],
     setInitialData: IStore['setInitialData']
@@ -30,6 +42,9 @@ export const initializePropertyData = async (
     setAppState('ready')
 }
 
+/**
+ * Function to set the selected value for individual filter type.
+ */
 export const handleFilterChange = (
     data: IFilterChange,
     setFilterValue: React.Dispatch<React.SetStateAction<IFilterValue>>
@@ -57,43 +72,26 @@ export const handleFilterChange = (
     }
 }
 
+/**
+ * Filters the given data depending on the filter params passed.
+ *
+ * @param originalValue : value we want to filter from.
+ * @param filterParms : the different paramater values to be used while filtering.
+ * @retuns filteredData
+ */
 export const filterData = (
     originalValue: IProperty[],
-    filterValue: IFilterValue
+    filterParams: IFilterValue
 ): IProperty[] => {
-    const log = console.log
-    console.clear()
+    let fp = filterParams
 
-    log(
-        'originalValuelen: ',
-        originalValue.length,
-        ' filterValue: ',
-        filterValue
+    let filteredData = originalValue.filter(
+        (i) =>
+            i.location === fp.location &&
+            i.dateAvailableFrom <= fp.date &&
+            i.rent.monthly > fp.price &&
+            i.propertyType === fp.propertyType
     )
 
-    let filteredLocation = originalValue.filter(
-        (i) => i.location === filterValue.location
-    )
-
-    log('filteredLocation: ', filteredLocation)
-
-    let filteredDate = filteredLocation.filter(
-        (i) => i.dateAvailableFrom <= filterValue.date
-    )
-
-    log('filterdDate: ', filteredDate)
-
-    let filteredByPrice = filteredDate.filter(
-        (i) => i.rent.monthly > filterValue.price
-    )
-
-    log('filteredByPrice: ', filteredByPrice)
-
-    let finalFilter = filteredByPrice.filter(
-        (i) => i.propertyType === filterValue.propertyType
-    )
-
-    console.log(finalFilter)
-
-    return finalFilter
+    return filteredData
 }

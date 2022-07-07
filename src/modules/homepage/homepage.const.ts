@@ -1,3 +1,8 @@
+/**
+ * Constants that will be exclusively be used by homepage.tsx (or)
+ * elements present in this directory.
+ */
+
 import { IFilterValue } from './homepage.types'
 
 export const Locations = [
