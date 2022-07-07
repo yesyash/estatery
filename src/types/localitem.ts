@@ -1,5 +1,5 @@
-export interface LocalItem {
+export interface LocalItem<T> {
     expiry: number
     key: string
-    value: object | Array<any>
+    value: T
 }

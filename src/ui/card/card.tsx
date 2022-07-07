@@ -2,6 +2,15 @@ import { Bed, HotTub } from '@/icons'
 import React from 'react'
 import { Square, Star } from 'react-feather'
 
+interface Props {
+    img: string
+    name: string
+    price: number
+    address: string
+    beds: number
+    bathrooms: number
+    area: { length: number; width: number }
+}
 const Ribbon = () => {
     return (
         <div className="absolute bottom-0 left-0 flex items-center p-3 font-medium text-white translate-y-1/2 rounded-tr-lg rounded-br-lg bg-violet-500">
@@ -11,51 +20,52 @@ const Ribbon = () => {
     )
 }
 
-export const Card = () => {
+export const Card: React.FC<Props> = (props) => {
     return (
         <div className="relative min-w-[350px] max-w-[450px] rounded-lg overflow-hidden shadow-md shadow-violet-400/10">
-            <div className="relative">
+            <div className="relative h-72">
                 <Ribbon />
                 <img
-                    src="https://images.unsplash.com/photo-1614846384571-1e31322ed3a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                    alt=""
+                    src={props.img}
+                    alt={props.name}
+                    className="object-cover w-full h-full"
                 />
             </div>
 
             <div className="px-6 py-4 bg-white">
                 <div className="flex items-center pt-4">
                     <p className="mr-1 text-2xl font-semibold text-violet-500">
-                        $2,095
+                        ${props.price}
                     </p>
                     <span className="text-gray-500">/month</span>
                 </div>
 
                 <div className="pt-2 pb-4">
-                    <p className="text-3xl font-semibold">Palm Harbor</p>
-                    <p className="text-gray-600">
-                        Lorem ipsum dolor sit amet consectetur.
+                    <p className="mb-2 text-2xl font-semibold capitalize">
+                        {props.name}
                     </p>
+                    <p className="text-sm text-gray-500">{props.address}</p>
                 </div>
 
                 <div className="flex items-center justify-between py-4 border-t border-gray-200">
                     <div className="flex items-center text-violet-900">
                         <Bed small />
                         <span className="block ml-2 text-sm text-gray-500">
-                            4 Beds
+                            {props.beds} Beds
                         </span>
                     </div>
 
                     <div className="flex items-center text-violet-900">
                         <HotTub small />
                         <span className="block ml-2 text-sm text-gray-500">
-                            2 Bathrooms
+                            {props.bathrooms} Bathrooms
                         </span>
                     </div>
 
                     <div className="flex items-center text-violet-900">
                         <Square width={18} height={18} strokeWidth={1.5} />
                         <span className="block ml-2 text-sm text-gray-500">
-                            8 x 10 &#13217;
+                            {props.area.width} x {props.area.length} &#13217;
                         </span>
                     </div>
                 </div>

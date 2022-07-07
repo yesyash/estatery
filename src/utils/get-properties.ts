@@ -2,7 +2,7 @@ import { IPropertiesApi, IProperty } from '@/types/property'
 
 interface fetchResponse {
     data: IProperty[]
-    status: number
+    status: 200 | 400
     error: null | string
 }
 

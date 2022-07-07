@@ -1,3 +1,4 @@
+import React from 'react'
 import type { NextPage } from 'next'
 
 import { Header } from '@/components/header'
@@ -5,17 +6,32 @@ import { SearchSection } from './sections/search'
 import { CardsSection } from './sections/cards'
 import { FilterSection } from './sections/filter'
 
+import { useStore } from './homepage.store'
+import { initializePropertyData } from './homepage.utils'
+
 const HomePage: NextPage = () => {
+    const { appState, setAppState, setInitialData } = useStore((state) => state)
+
+    React.useEffect(() => {
+        initializePropertyData(setAppState, setInitialData)
+    }, [])
+
     return (
-        <main className="min-w-full min-h-screen bg-[#F2F3FE]">
+        <div className="bg-[#F2F3FE] min-h-screen">
             <Header />
 
-            <section className="py-8 mx-auto max-w-7xl ">
+            <main className="py-8 mx-auto max-w-7xl">
                 <SearchSection />
                 <FilterSection />
-                <CardsSection />
-            </section>
-        </main>
+                {appState !== 'ready' ? (
+                    <div className="grid capitalize lg:h-40 lg:text-xl place-content-center">
+                        {appState}...
+                    </div>
+                ) : (
+                    <CardsSection />
+                )}
+            </main>
+        </div>
     )
 }
 
