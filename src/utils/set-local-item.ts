@@ -1,7 +1,7 @@
 import { LocalItem } from '@/types/localitem'
 import { getLocalItem } from './get-local-item'
 
-type Params = Omit<LocalItem, 'expiry'>
+type Params<T> = Omit<LocalItem<T>, 'expiry'>
 type Result = 'success' | 'error'
 
 // Adds a set number of hours to current time and returns the future date in unix time.
@@ -16,7 +16,7 @@ function getFutureDate(hours: number) {
  * @param Key : string & value : object | Array<any>
  * @returns message : "success" | "error"
  */
-export const setLocalItem = ({ key, value }: Params): Result => {
+export const setLocalItem = <T>({ key, value }: Params<T>): Result => {
     let tokenisedValue = { expiry: getFutureDate(24), value: value }
 
     localStorage.setItem(key, JSON.stringify(tokenisedValue))
