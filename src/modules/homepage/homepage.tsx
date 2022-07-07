@@ -8,6 +8,7 @@ import { FilterSection } from './sections/filter'
 
 import { useStore } from './homepage.store'
 import { initializePropertyData } from './homepage.utils'
+import { Head } from 'next/document'
 
 const HomePage: NextPage = () => {
     const { appState, setAppState, setInitialData } = useStore((state) => state)
@@ -17,22 +18,28 @@ const HomePage: NextPage = () => {
     }, [])
 
     return (
-        <div className="bg-[#F2F3FE] min-h-screen">
-            <Header />
+        <>
+            <Head>
+                <title>Estatery</title>
+            </Head>
 
-            <main className="py-8 mx-auto max-w-7xl">
-                <SearchSection />
-                <FilterSection />
+            <div className="bg-[#F2F3FE] min-h-screen">
+                <Header />
 
-                {appState !== 'ready' ? (
-                    <div className="grid capitalize lg:h-40 lg:text-xl place-content-center">
-                        {appState}...
-                    </div>
-                ) : (
-                    <CardsSection />
-                )}
-            </main>
-        </div>
+                <main className="py-8 mx-auto max-w-7xl">
+                    <SearchSection />
+                    <FilterSection />
+
+                    {appState !== 'ready' ? (
+                        <div className="grid capitalize lg:h-40 lg:text-xl place-content-center">
+                            {appState}...
+                        </div>
+                    ) : (
+                        <CardsSection />
+                    )}
+                </main>
+            </div>
+        </>
     )
 }
 
