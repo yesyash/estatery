@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
+
 import { data as propertiesData } from '@/static/properties-data'
-import { IProperty, IPropertiesApi } from '@/types/property'
+import { IPropertiesApi } from '@/types/property'
 
 export default function handler(
     req: NextApiRequest,
